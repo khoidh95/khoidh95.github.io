@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do Hong Khoi CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #fafafa;
+            padding: 40px 20px;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #fff;
+            display: grid;
+            grid-template-columns: 360px 1fr;
+            min-height: 100vh;
+        }
+
+        .left-column {
+            background: #f9f9f9;
+            padding: 50px 35px;
+            border-right: 1px solid #e0e0e0;
+            animation: slideInLeft 0.6s ease-out;
+        }
+
+        .profile-picture {
+            width: 100%;
+            height: 400px;
+            background: #fff;
+            border: 1px solid #d0d0d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 35px;
+            font-size: 13px;
+            color: #999;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cropped {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: 50 50;
+        }
+
+        .name-section {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #d0d0d0;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+
+        .name-section h1 {
+            font-size: 2em;
+            margin-bottom: 6px;
+            font-weight: 600;
+            letter-spacing: -0.8px;
+            color: #000;
+        }
+
+        .name-section .title {
+            font-size: 0.95em;
+            color: #666;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+        }
+
+        .info-section {
+            margin-bottom: 35px;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+
+        .section-title {
+            font-size: 0.7em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 18px;
+            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 3px;
+            height: 12px;
+            background: #999;
+        }
+
+        .info-item {
+            margin-bottom: 14px;
+            padding: 12px;
+            background: #fff;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .info-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85em;
+            margin-bottom: 3px;
+            color: #000;
+        }
+
+        .info-item span {
+            display: block;
+            color: #666;
+            font-size: 0.88em;
+        }
+
+        .degree-item {
+            margin-bottom: 18px;
+            padding: 15px;
+            background: #fff;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .degree-item:hover {
+            transform: translateX(5px);
+            border-color: #666;
+        }
+
+        .degree-item strong {
+            display: block;
+            font-weight: 600;
+            font-size: 0.92em;
+            margin-bottom: 5px;
+            color: #000;
+        }
+
+        .degree-item .detail {
+            display: block;
+            color: #666;
+            font-size: 0.85em;
+            line-height: 1.6;
+        }
+
+        .cert-item {
+            margin-bottom: 14px;
+            padding: 12px 15px;
+            background: #fff;
+            font-size: 0.85em;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .cert-item:hover {
+            transform: translateX(5px);
+            border-color: #666;
+        }
+
+        .cert-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #000;
+        }
+
+        .cert-item .detail {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .right-column {
+            padding: 50px 45px;
+            background: #fff;
+            animation: slideInRight 0.6s ease-out;
+        }
+
+        .experience-header {
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .experience-header::before {
+            content: '';
+            width: 4px;
+            height: 24px;
+            background: #999;
+        }
+
+        .experience-header h2 {
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: #000;
+        }
+
+        .job-item {
+            margin-bottom: 35px;
+            padding: 30px;
+            background: #fafafa;
+            border-left: 3px solid #999;
+            animation: fadeInUp 0.6s ease-out both;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .job-item:hover {
+            transform: translateX(5px);
+            box-shadow: -5px 5px 20px rgba(0,0,0,0.08);
+            border-color: #666;
+        }
+
+        .job-item:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .job-item:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .job-item:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .job-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .job-title {
+            font-size: 1.35em;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            color: #000;
+        }
+
+        .job-meta {
+            font-size: 0.88em;
+            color: #666;
+            margin-bottom: 18px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-weight: 500;
+        }
+
+        .job-meta span:not(:last-child)::after {
+            content: '|';
+            margin-left: 12px;
+            color: #ccc;
+        }
+
+        ul {
+            margin-left: 0;
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: #333;
+            line-height: 1.7;
+            font-size: 0.92em;
+        }
+
+        li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            background: #999;
+            border-radius: 50%;
+        }
+
+        .project {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #fff;
+            border-left: 2px solid #ccc;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateX(3px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-color: #999;
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .project-period {
+            font-size: 0.82em;
+            color: #999;
+            margin-bottom: 12px;
+            font-style: italic;
+        }
+
+        .project ul {
+            margin-top: 8px;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .left-column {
+                border-right: none;
+                border-bottom: 1px solid #e0e0e0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .left-column {
+                padding: 35px 25px;
+            }
+
+            .right-column {
+                padding: 35px 25px;
+            }
+
+            .name-section h1 {
+                font-size: 1.6em;
+            }
+
+            .job-title {
+                font-size: 1.2em;
+            }
+
+            .job-item {
+                padding: 22px 18px;
+            }
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+            }
+            .container {
+                display: block;
+            }
+            .left-column {
+                float: left;
+                width: 35%;
+                border-right: 1px solid #e0e0e0;
+            }
+            .right-column {
+                float: right;
+                width: 65%;
+            }
+            .job-item {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-column">
+            <div class="profile-picture">
+                <span>
+                    <img src="https://scontent.fhnd7-1.fna.fbcdn.net/v/t39.30808-6/437970832_8301135109902308_308571607223140274_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=BsCfAFcvuQIQ7kNvwGxv-In&_nc_oc=Adl9U-Y3-vvHnbU8Gjm1NbL1aiR7xFIBeZQ0Ew1wamXn8CmXObvjcG4adQrVO6ZvHaY&_nc_zt=23&_nc_ht=scontent.fhnd7-1.fna&_nc_gid=7kR5XKdV-jGlbwPPjAGV1g&oh=00_AfmCGt-mTSrjX82pdDH7iQsx06PNJKHAUcv7QCUGXwMXOA&oe=6944AB28"
+                    alt="profile" class="cropped">
+                </span>
+            </div>
+
+            <div class="name-section">
+                <h1>DO HONG KHOI</h1>
+                <div class="title">ド　ホン　コイ</div>
+            </div>
+
+            <div class="info-section">
+                <div class="section-title">連絡先</div>
+                <div class="info-item">
+                    <strong>メール</strong>
+                    <span>khoidh95@gmail.com</span>
+                </div>
+                <div class="info-item">
+                    <strong>電話番号</strong>
+                    <span>080-5804-1909</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="section-title">学歴</div>
+                <div class="degree-item">
+                    <strong>理学士</strong>
+                    <span class="detail">ソフトウェアエンジニアリング</span>
+                    <span class="detail">FPT大学</span>
+                    <span class="detail">2014年 - 2017年</span>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="section-title">資格</div>
+                <div class="cert-item">
+                    <strong>AWSクラウドプラクティショナー</strong>
+                    <span class="detail">2025年</span>
+                </div>
+                <div class="cert-item">
+                    <strong>JLPT N2</strong>
+                    <span class="detail">2021年</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-column">
+            <div class="experience-header">
+                <h2>職務経歴</h2>
+            </div>
+
+            <div class="job-item">
+                <div class="job-title">BrSE</div>
+                <div class="job-meta">
+                    <span>東京都</span>
+                    <span>2022年05月 - 現在</span>
+                </div>
+                
+                <div class="project">
+                    <div class="project-title">新規顧客向けに小売基幹システムの導入</div>
+                    <div class="project-period">2024年10月 - 現在</div>
+                    <ul>
+                        <li>要件定義工程から参画し、親会社と別のベンダー（ベトナム企業）間における調整およびコミュニケーションのハブとして業務を進行。</li>
+                        <li>業務チーム（日本人メンバー）と共に、仕入・買掛・販売・在庫に関わる要件定義、基本設計書を作成。<br></li>
+                        <li>開発工程において、BrSEとして親会社と自社開発チーム（ベトナム側）をつなぎ、
+                            オフショアPMと協力して工数見積もりおよび作業計画の策定を推進。<br>
+                            進行中にオフショア側のQ&A対応およびChange Requestの調整・連携を担当。
+                        </li>
+                        <li>メンバー数：30人（ピーク・日本人）、15人（ピーク・オフショア側）</li>
+                        <li>技術：ASP.NET、SQLServer、DataSpider、Jp1、AWS、Python</li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">社内のR&Dプロジェクト</div>
+                    <div class="project-period">2025年11月 - 現在</div>
+                    <ul>
+                        <li>生成AI技術を活用して、社内向けチャットボットおよび翻訳システムを設計・開発・導入し、社内業務効率化に改善。</li>
+                        <li>翻訳システムのフロントエンドの設計・開発を担当。各システムのパーフォース評価を実施。</li>
+                        <li>メンバー数：8人</li>
+                        <li>技術：Github Copilot、ReactJS、TypeScript、Python、Microsoft Foundry、Azure</li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">既存顧客向けに小売基幹システムの保守・アドオン対応</div>
+                    <div class="project-period">2022年05月 - 2023年9月</div>
+                    <ul>
+                        <li>既存顧客向けに、不具合修正やアドオン機能の依頼を親会社から受け取り、オフショアチームへ展開。<br>
+                            成果物の品質保証を行い、納品を期日通りに実施。<br>
+                            必要に応じて、親会社のメンバーと協力し、調査を行うこともある。
+                        </li>
+                        <li>オフショアチームとの役割分担を整理・明確化し、会社標準のプロセスに基づいてプロジェクト状況に適した改善を策定。<br></li>
+                        <li>3か月でオフショア2名体制のラボチームを立ち上げ、その後さらに1か月で3名体制に拡大。<br></li>
+                        <li>導入プロジェクト参画に伴い、トレーニング資料を作成し、次担当者への業務引き継ぎを実施。<br>
+                            業務引き継ぎ後、約3か月間でプロジェクトをフォローアップ。<br>
+                        </li>
+                        <li>ラボ以外、同じドメインの個別プロジェクトも工数見積もりサポートし、オフショア側のQ&Aを対応。</li>
+                        <li>親会社の業務勉強会に参加、小売業界の知識を深める。</li>
+                        <li>メンバー数：3人（ラボ）、15人（ピーク・個別）</li>
+                        <li>技術：ASP.NET、VueJS、AngularJS、TypeScript、SQLServer、AnyTran、Jp1、Azure、Python</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-title">SE</div>
+                <div class="job-meta">
+                    <span>東京都</span>
+                    <span>2019年10月 - 2022年04月</span>
+                </div>
+                
+                <div class="project">
+                    <div class="project-title">顧客管理システムのデータ移行</div>
+                    <div class="project-period">2021年10月 - 2022年04月</div>
+                    <ul>
+                        <li>顧客の独自システムからSaaSシステムへの移行において、旧システムと新システムの差分を調査し、データ移行手順の策定を担当。</li>
+                        <li>メンバー数：3人</li>
+                        <li>技術：DB2 、Saleforce</li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">ローコードのパイロット</div>
+                    <div class="project-period">2021年03月 - 2021年09月</div>
+                    <ul>
+                        <li>Low-code技術を用いたパイロットプロジェクトにおいて、PoC実施・評価を担当し、技術導入可否の判断材料を提供。</li>
+                        <li>メンバー数：5人</li>
+                        <li>技術：WebPerformer 、OutSystems</li>
+                    </ul>
+                </div>
+
+                <div class="project">
+                    <div class="project-title">ドラッグストアのデータ変換</div>
+                    <div class="project-period">2019年10月 - 2021年02月</div>
+                    <ul>
+                        <li>ドラッグストアと仕入先間のデータ連携に向け、データ変換プログラムの開発を担当。</li>
+                        <li>メンバー数：3人</li>
+                        <li>技術：AnyTran</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="job-item">
+                <div class="job-title">SE</div>
+                <div class="job-meta">
+                    <span>ハノイ</span>
+                    <span>2017年10月 - 2019年04月</span>
+                </div>
+                
+                <div class="project">
+                    <div class="project-title">小売基幹システムの開発</div>
+                    <div class="project-period">2017年10月 - 2019年04月</div>
+                    <ul>
+                        <li>親会社が導入する新規・既存顧客向け小売システムにおいて、親会社からの要求に基づく開発を担当。</li>
+                        <li>リータからからの指示に従い、コーディング・単体テストを実施し、品質確保に貢献。</li>
+                        <li>メンバー数：10人（ピーク）</li>
+                        <li>技術：ASP.NET、AngularJS、TypeScript、SQLServer、AnyTran</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
