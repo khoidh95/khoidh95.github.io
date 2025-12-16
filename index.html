@@ -8,6 +8,86 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 12mm;
+            }
+
+            .profile-picture {
+                display: none !important;
+            }
+
+            .experience-header {
+                display: none !important;
+            }
+
+            .job-item {
+                border-left: none !important;
+            }
+
+            body {
+                background: #fff;
+                padding: 0;
+            }
+
+            .container {
+                display: block !important;
+                max-width: 100% !important;
+            }
+
+            .left-column,
+            .right-column {
+                width: 100% !important;
+                float: none !important;
+                border: none !important;
+            }
+
+            .left-column {
+                margin-bottom: 20px;
+                border-bottom: 1px solid #e0e0e0;
+            }
+
+            /* ===== CONTACT: メール + 電話番号 (same row) ===== */
+            .info-section.contact {
+                display: flex;
+                gap: 20px;
+            }
+
+            .info-section.contact .info-item {
+                flex: 1;
+                margin-bottom: 0;
+            }
+
+            /* ===== EDUCATION: all degree-items in one row ===== */
+            .info-section.education,
+            .info-section.certification {
+                display: flex;
+                gap: 20px;
+                flex-wrap: wrap;
+                /* optional if too many items */
+            }
+
+            .info-section.education .degree-item,
+            .info-section.certification .cert-item {
+                flex: 1;
+                /* equally distribute */
+                margin-bottom: 0;
+            }
+
+            /* Prevent page breaks inside jobs/projects */
+            .job-item,
+            .project {
+                page-break-inside: avoid;
+            }
+
+            * {
+                animation: none !important;
+                transition: none !important;
+                box-shadow: none !important;
+            }
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -448,7 +528,7 @@
                 <div class="title">ド　ホン　コイ</div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section contact">
                 <div class="section-title">連絡先</div>
                 <div class="info-item">
                     <strong>メール</strong>
@@ -460,7 +540,7 @@
                 </div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section education">
                 <div class="section-title">学歴</div>
                 <div class="degree-item">
                     <strong>理学士</strong>
@@ -470,7 +550,7 @@
                 </div>
             </div>
 
-            <div class="info-section">
+            <div class="info-section certification">
                 <div class="section-title">資格</div>
                 <div class="cert-item">
                     <strong>AWSクラウドプラクティショナー</strong>
